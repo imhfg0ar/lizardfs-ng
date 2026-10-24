@@ -48,11 +48,12 @@ cmake .. \
     -DCMAKE_DISABLE_FIND_PACKAGE_DB=TRUE
 ```
 DON'T play with the build settings. No user-servicable parts inside.
-The only exception is the -DCMAKE_INSTALL_LOCALSTATEDIR=/var and -DCMAKE_INSTALL_SYSCONFDIR=/etc 
+The only exception is the `-DCMAKE_INSTALL_LOCALSTATEDIR=/var` and `-DCMAKE_INSTALL_SYSCONFDIR=/etc` 
 if you skip both - it will make full-local default paths, so the config goes to /usr/local/etc and data kept in /usr/local/var
 
 If and only if you really want to replace already-installed debian/ubuntu packages, use
-```            -DCMAKE_INSTALL_PREFIX="/"   \
+```
+               -DCMAKE_INSTALL_PREFIX="/"   \
                -DENABLE_DEBIAN_PATHS=YES    \
 ```
 instead of both. The debian binaries WILL be overriden by make install. Configs should be safe but note I never run make install as root.
