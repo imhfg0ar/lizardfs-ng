@@ -1,5 +1,8 @@
-This project is my attempt to maintain and fix long-standing bugs in my own lizardfs cluster after the original project mizerable death.
+This is the fork of the last known (almost) good version [3.12](https://github.com/lizardfs/lizardfs/tree/3.12) of the [lizardfs](https://github.com/lizardfs/lizardfs) distributed filesystem.
+
+This project is my attempt to maintain and fix long-standing problems in my own lizardfs cluster after the original project mizerable death.
 I put it here in the hope that it might be useful to someone else but without any promises to made a finished work or something someone can start own clone from.
+It's not associated with Distributed FS Sp. z o.o.,Skytechnology sp. z o.o. or any other previous or current (if any)  original lizardfs project owners.
 
 Please take into account it's single-man project I do in my spare time. So it will not respect any github or opensource in common accepted standards and practices.
 The code itself is available only in debian orig packages, because I use neither github nor git itself.
@@ -16,13 +19,13 @@ For now the most important thing you should know: the lizardfs until 3.13-pre ha
 The data-killer bug in 3.13 pre-release was actually made because they (silently! no information was published, nothing was documented) tried to fix it, but made it very hastily and never properly tested.
 This fork is made from 3.12 release, and BUG IS JUST THERE. But the handling is comlpetely different. 
 
-The bug itself: the authors (actually as many others that time) chose wrong method for calculating EC codes. It was not completely they error, it comes from the academic researches who brought us the entire technology.
+The bug itself: the authors (actually as many others that time) chose wrong method for calculating EC codes. It was not completely they's error, it came from the academic researches who brought us the entire technology.
 It is reliable for any EC goals (m,n) where n <=2 - so if you use anything equivalent to raid6, you have not touched by this bug.
 If you use some bigger n - your data ARE in danger. Attempt to recover the failed chunk will (with some probability) produce WRONG data. No ways to recover. No ways to detect.
 
-So when this fork's master detect such goals in your mfsgoals.cfg - it will abort immediately (and log the case).
-The goal checks are _computed_, not just pre-recorded, and if it aborts - your data are very probably in danger.
-(the master don't check if any real files have such goal - only the goals defined in your cluster config  are checked)
+So when this fork's master finds such goals in your mfsgoals.cfg - it will abort immediately (and log the case).
+The goal checks are _computed_, not just pre-recorded, and if it aborts - your data is very probably in danger.
+(the master donesn't check if any real files have such goal - only the goals defined in your cluster config are checked)
 
 So if it refuses to start - read the log carefully. In case of the wrong goal, add as a temporary workaround  ALLOW_UNSAFE_EC_GOALS = 1 to mfsmater.cfg and restart.
 Your data is STILL IN DANGER, until you scan all your files, change they goals to really recoverable ones and wait until all chunks will be rewritten and all checksums recomputed.
