@@ -31,6 +31,7 @@ for debian or ubuntu. You will probably have no libjudy on modern systems, so sk
 untar only `lizardfs_3.12.0+ng10-all.orig.tar.xz`
 cd into unpacked tree - lizardfs-3.12.0+ng10-all
 `mkdir build && cd build` # cmake will refuse to run from the sources tree itself
+
 configure the build system:
 ```
 cmake .. \
