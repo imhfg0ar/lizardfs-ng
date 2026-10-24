@@ -14,14 +14,14 @@ Feel free to play with debian/* if you wish, or start a bare source rebuild with
 
 For source-only build: 
 install build deps:
-sudo apt-get install -y \
+`sudo apt-get install -y \
     cmake g++ make \
     libfuse-dev \
     libboost-filesystem-dev libboost-iostreams-dev \
     libboost-program-options-dev libboost-system-dev \
     zlib1g-dev libjudy-dev libsystemd-dev \
     libisal-dev \
-    asciidoc unzip pkg-config
+    asciidoc unzip pkg-config`
 
 for debian or ubuntu. You will probably have no libjudy on modern systems, so skip it (the project can be build without it)
 
