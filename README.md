@@ -7,7 +7,7 @@ The code itself is available only in debian orig packages, because I use neither
 The issues ARE welcome, but, again, take into account I probably will not have any time for it.
 The patches are, mostly, not, because I surely have no time to review, oneliners are probably ok.
 
-The pre-built packages are available for Ubuntu 18.04 both amd64 and ahrmhf only - you will find them on relases page.
+The pre-built packages are available for Ubuntu 18.04 both amd64 and ahrmhf only - you will find them on releases page.
 
 There are some changes in configuration and behavior, made to close some nasty data-eating bugs in the original project.
 I will publish the documentation when ready to.
