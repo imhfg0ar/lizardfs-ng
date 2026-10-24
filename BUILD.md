@@ -61,4 +61,4 @@ If and only if you really want to replace already-installed debian/ubuntu packag
 instead of both. The debian binaries WILL be overriden by make install. Configs should be safe but note I never run make install as root.
 (the binary debs properly handle config files, never overriding already existing ones)
 
-The second define changes 'mfs' in paths to lizardfs - debian's maintainer half-done work to co-exist with moosefs. Note it never worked and I never will fix!
+The second define changes 'mfs' in paths to lizardfs - debian's maintainer half-done work to co-exist with moosefs. Note it never worked and I never will fix! The only intention is to make paths the same as in the distributon-provided packages so mine became drop-in upgrade.
