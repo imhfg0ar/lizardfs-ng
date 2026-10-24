@@ -8,9 +8,11 @@ second - lizardfs_3.12.0+ng10-all.orig.tar.xz should be put one level up
 cd to unpacked tree ( lizardfs-3.12.0+ng10-all/ if you use current build) and run `dpkg-buildpackage -us -uc`
 if the build finishes normally - the ready-to-install deb's will be created one level up (same level as you put *orig* file)
 
-Note you will SURELY unable to rebuild on anything other than ubuntu 18.
+Note you will SURELY unable to rebuild this way on anything other than ubuntu 18.
 
-Feel free to play with debian/* if you wish, or start a bare source rebuild without proper packaging.
+The code itself - is buildable on any relatively-modern linux with gcc.
+
+Feel free to play with debian/* if you wish, or start a bare source rebuild without proper packaging or make your own (note .spec inside is broken one from the original project, don't use it blindly).
 
 For source-only build: 
 install build deps:
@@ -25,7 +27,7 @@ sudo apt-get install -y \
     asciidoc unzip pkg-config
 ```
 
-for debian or ubuntu. You will probably have no libjudy on modern systems, so skip it (the project can be build without it)
+for debian or ubuntu. You will probably have no libjudy on modern systems, so skip it (the project can be build without it). You will have no libisal on non-amd64 hardware, so skip it also. Systemd also can be safely skipped.
 
 
 untar only `lizardfs_3.12.0+ng10-all.orig.tar.xz`
