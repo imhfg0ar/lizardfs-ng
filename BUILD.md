@@ -14,14 +14,16 @@ Feel free to play with debian/* if you wish, or start a bare source rebuild with
 
 For source-only build: 
 install build deps:
-```sudo apt-get install -y \
+```
+sudo apt-get install -y \
     cmake g++ make \
     libfuse-dev \
     libboost-filesystem-dev libboost-iostreams-dev \
     libboost-program-options-dev libboost-system-dev \
     zlib1g-dev libjudy-dev libsystemd-dev \
     libisal-dev \
-    asciidoc unzip pkg-config```
+    asciidoc unzip pkg-config
+```
 
 for debian or ubuntu. You will probably have no libjudy on modern systems, so skip it (the project can be build without it)
 
@@ -30,7 +32,8 @@ untar only `lizardfs_3.12.0+ng10-all.orig.tar.xz`
 cd into unpacked tree - lizardfs-3.12.0+ng10-all
 `mkdir build && cd build` # cmake will refuse to run from the sources tree itself
 configure the build system:
-```cmake .. \
+```
+cmake .. \
     -DCMAKE_BUILD_TYPE=RelWithDebInfo \
     -DCMAKE_INSTALL_LOCALSTATEDIR=/var \
     -DCMAKE_INSTALL_SYSCONFDIR=/etc \
@@ -48,8 +51,9 @@ The only exception is the -DCMAKE_INSTALL_LOCALSTATEDIR=/var and -DCMAKE_INSTALL
 if you skip both - it will make full-local default paths, so the config goes to /usr/local/etc and data kept in /usr/local/var
 
 If and only if you really want to replace already-installed debian/ubuntu packages, use
- `              -DCMAKE_INSTALL_PREFIX="/"   \
-               -DENABLE_DEBIAN_PATHS=YES    \`
+```            -DCMAKE_INSTALL_PREFIX="/"   \
+               -DENABLE_DEBIAN_PATHS=YES    \
+```
 instead of both. The debian binaries WILL be overriden by make install. Configs should be safe but note I never run make install as root.
 (the binary debs properly handle config files, never overriding already existing ones)
 
