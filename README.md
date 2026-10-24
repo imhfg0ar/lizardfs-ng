@@ -14,7 +14,7 @@ I will publish the documentation when ready to.
 
 For now the most important thing you should know: the lizardfs until 3.13-pre has HUGE issue.
 The data-killer bug in 3.13 pre-release was actually made because they (silently! no information was published, nothing was documented) tried to fix it, but made it very hastily and never properly tested.
-This fork is made from 3.12 release, and BUG IS JUST THERE. But the handling is comletely different. 
+This fork is made from 3.12 release, and BUG IS JUST THERE. But the handling is comlpetely different. 
 
 The bug itself: the authors (actually as many others that time) had choise wrong method for calculating EC codes. It was not completely they error, it comes from the academic researches who brought us the entire technology.
 It is reliable for any EC goals (m,n) where n <=2 - so if you use anything equivalent to raid6, you have not touched by this bug.
