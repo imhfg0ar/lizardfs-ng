@@ -45,3 +45,5 @@ goal promises to survive — and the surviving-set matrix is singular.
 
 The same way it handles broken changelogs (which MAY be produced by original lizardfs because it has almost zero safety checks) - there is NO overrides and no ways to continue if master tells you about 'changelog gap'.
 Your metadata is ALREADY LOST. Hope you have a backup, yeah?
+
+For now, the user-side documentation lives as a Claude artefact, (https://claude.ai/artifact/9LZfAKSVq1skuHVUotKgey)
