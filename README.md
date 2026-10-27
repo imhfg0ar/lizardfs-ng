@@ -46,4 +46,6 @@ goal promises to survive — and the surviving-set matrix is singular.
 The same way it handles broken changelogs (which MAY be produced by original lizardfs because it has almost zero safety checks) - there is NO overrides and no ways to continue if master tells you about 'changelog gap'.
 Your metadata is ALREADY LOST. Hope you have a backup, yeah?
 
+Note the protocol version the servers internally report (the wire protocol of the lizardfs itself), visible through cgi monitor, is changed to 3.12.1 - it's unavoidable change because I was forced to change the protocol itself. (the daemons have a handling of protocol mismatches, either refusing to talk, or reducing what they accept, so you will not break your data while changing only some servers, but note the old shadows are unable to talk with new master at all - they will detect it and refuse to connect)
+
 For now, the user-side documentation lives as a Claude artefact, (https://claude.ai/artifact/9LZfAKSVq1skuHVUotKgey)
