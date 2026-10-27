@@ -20,8 +20,8 @@ The data-killer bug in 3.13 pre-release was actually made because they (silently
 This fork is made from 3.12 release, and BUG IS JUST THERE. But the handling is comlpetely different. 
 
 The bug itself: the authors (actually as many others that time) chose wrong method for calculating EC codes. It was not completely they's error, it came from the academic researches who brought us the entire technology.
-It is reliable for any EC goals (m,n) where n <=2 - so if you use anything equivalent to raid6, you have not touched by this bug.
-If you use some bigger n - your data ARE in danger. Attempt to recover the failed chunk will (with some probability) produce WRONG data. No ways to recover. No ways to detect.
+It is reliable for any EC goals (k,m) where m <=2 - so if you use anything equivalent to raid6, you have not touched by this bug.
+If you use some bigger m - your data probably ARE in danger. If you use m>=4 - you SURELY walking through minefield. Attempt to recover the failed chunk will (with some probability) produce WRONG data. No ways to recover. No ways to detect.
 
 So when this fork's master finds such goals in your mfsgoals.cfg - it will abort immediately (and log the case).
 The goal checks are _computed_, not just pre-recorded, and if it aborts - your data is very probably in danger.
