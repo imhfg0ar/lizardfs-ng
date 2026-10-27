@@ -11,7 +11,7 @@ It's already had some issues, part of which were fixed by OnlyJob debian maintai
 
 I'm not a opensource and particularily linux fan (both are crap). Most of my everyday tasks are windows-backed and I need reliable and reasonable fast ... ok... not snaily slow at least access to lizardfs storage from windows.
 
-I played with they "ganesha plugin", it looked easy target, but found the ganesha nfs itself is completely crappy shit-software. 
+I played with they "ganesha plugin", it looked easy target, but found the ganesha nfs itself is completely crappy shit-software. (*)
 I tried to buy windows driver from lizardfs.com but they prices were ridiculous. (they tried to sell me "support" I never needed, especially from them)
 I looked on samba... the gluster had almost-working samba plugin, and lizardfs had something like api... but writing samba plugin for samba 4.7 (the one shipped with ubuntu18) proved to be hard and silly task (they later completely changed vfs api so new versions need complete rewrite)
 
@@ -39,3 +39,5 @@ The metalogger and metarestorer is a tools of the last resort. Don't trust them.
 There are also some minor fixes because the old unmaintained project lost it's ability to be compiled on modern systems years ago.
 
 Also the monitoring tool is rewritten the way it may be runned by both python 2 (original code) and 3. The protocol also slightly changed, exposing more information about metadata healf (lessons were learned)
+
+\* - actually, ganesha things were even worse - the client library on which it was build had endless recursion bug, so it would hang on first readlink() - nobody at lizardfs team seems never even tried to simplest tests of what they coded. \[fixed in ng12 if you bothered on that]
