@@ -48,4 +48,6 @@ Your metadata is ALREADY LOST. Hope you have a backup, yeah?
 
 Note the protocol version the servers internally report (the wire protocol of the lizardfs itself), visible through cgi monitor, is changed to 3.12.1 - it's unavoidable change because I was forced to change the protocol itself. (the daemons have a handling of protocol mismatches, either refusing to talk, or reducing what they accept, so you will not break your data while changing only some servers, but note the old shadows are unable to talk with new master at all - they will detect it and refuse to connect)
 
+So correct upgrade path from stock lizardfs-3.12 is SHADOW->MASTER->METALOGGER. And keep the first window minimal, because the new shadow will not be able to verify checksums from older master and blindly accepts anything it transfers.
+
 For now, the user-side documentation lives as a Claude artefact, (https://claude.ai/artifact/9LZfAKSVq1skuHVUotKgey)
