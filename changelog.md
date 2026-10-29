@@ -1,0 +1,9 @@
+not true changelog but bugs fixed list in no particlular order
+
+most bugs are on armhf architecture (or just the builds without libJudy)
+
+1. printf formatting was bitness-incorrect, so long values sometimes printed as shorts, mostly leading to sigsegvs - exactly when it WAS something urgent to print
+2. shadows hangs while attempted to load big metadata changes (restarted after massive filesystem changes for example) because used wrong checks
+3. but not forever - it also has two timers set on startup, chart code to measure own cpu usage, so it will never complete metadata reading - nobody handles those timers during startup phase, so they fired without properly set signal hanler, killing shadow master
+4. metadata "crc" checks was platform-depended (worse, used function guarantied by c++ docs to produce same results only on same run within same binary, no warranties even for separate second run)
+5. 
