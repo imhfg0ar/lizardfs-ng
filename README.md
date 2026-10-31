@@ -5,10 +5,10 @@ I put it here in the hope that it might be useful to someone else but without an
 It's not associated with Distributed FS Sp. z o.o.,Skytechnology sp. z o.o. or any other previous or current (if any)  original lizardfs project owners.
 
 Please take into account it's single-man project I do in my spare time. So it will not respect any github or opensource in common accepted standards and practices.
-The code itself is available only in debian orig packages, because I use neither github nor git itself.
+The code itself is available only in debian orig packages, because I use neither github nor git itself, so don't clone this repo - it useless, contains only readmes, download the last archive from releases page instead. Read [BUILD.md](BUILD.md) if you really wish to build it.
 
 The issues ARE welcome, but, again, take into account I probably will not have any time for it.
-The patches are, mostly, not, because I surely have no time to review, oneliners are probably ok.
+The patches are, mostly, not, because I surely have no time to review, oneliners are probably ok, same for data-safety critical fixes. cves NOT accepted and not reviewed (you should never expose data clusters to common network and untrusted systems)
 
 The pre-built packages are available for Ubuntu 18.04 both amd64 and ahrmhf only - you will find them on releases page.
 
