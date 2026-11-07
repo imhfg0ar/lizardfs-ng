@@ -4,21 +4,22 @@ The initial idea behind all this was not to continue abandoned project (it actua
 to make working (probably not brilliant and not polished) windows driver what will not require yearly license payments (and not to depend of some corporate monkey business at all) and keep the my own cluster running.
 
 I made homelab project initially based on BaxterPad 2019th setup (it proved to be completely wrong idea, but I put too much money and effort to it to replace by something completely different)
-he started from this: https://www.reddit.com/r/DataHoarder/comments/8ocjxz/200tb_glusterfs_odroid_hc2_build/ and later switched to https://www.reddit.com/r/helios64/comments/k9y2u4/5_node_200tb_helios64_build_update/ - this was his last (known for me) design, and I can't find his earlier one odroid-based, but the idea I accepted was a mix of his first gluster-based attempt and this later one (also totally wrong, he never learned on his errors ;)
+
+He started from this: https://www.reddit.com/r/DataHoarder/comments/8ocjxz/200tb_glusterfs_odroid_hc2_build/ and later switched to https://www.reddit.com/r/helios64/comments/k9y2u4/5_node_200tb_helios64_build_update/ - this was his last (known for me) design, and I can't find his odroid-based intermediate one already migrated to lizardfs, but the idea I accepted was a mix of his first gluster-based attempt and this later one (also totally wrong, he never learned on his errors ;)
 
 My setup is also a bunch of HC2's (boards not produced anymore, development and support stopped, so I locked onto ubuntu 18 with they hand-made kernel) initially with lizardfs 3.12 from standard ubuntu package.
 It's already had some issues, part of which were fixed by OnlyJob debian maintainer, so I actually took his work as a foundation of mine own.
 
-I'm not a opensource and particularily linux fan (both are crap). Most of my everyday tasks are windows-backed and I need reliable and reasonable fast ... ok... not snaily slow at least access to my storage from windows.
+I'm not a opensource and particularily linux fan (both are crap). Most of my everyday tasks are windows-backed and I need reliable and reasonable fast ... ok... at least not snaily slow access to my storage from windows.
 
 I played with they "ganesha plugin", it looked easy target, but found the ganesha nfs itself is completely crappy shit-software. (*)
 I tried to buy windows driver from lizardfs.com but they prices were ridiculous. (they tried to sell me "support" I never needed, especially from them)
 I looked on samba... the gluster had almost-working samba plugin, and lizardfs had something like api... but writing samba plugin for samba 4.7 (the one shipped with ubuntu18) proved to be hard and silly task (they later completely changed vfs api so new versions need complete rewrite - much simplier, but absolutely different, most of ubuntu18 era code became dead)
 
 So I resorted to most simple way of doing thing - just compile lizardfs code for windows target and add some shim to replace fuse calls with something available on windows.
-Most work were already done - one of the teams behind lizardfs made almost-working port to windows, and there are even TWO fuse-api drivers made by enthusiasts - old Dokan/dokany and newer winfsp.
+Most work was already done - one of the teams behind lizardfs made almost-working port to windows, and there are even TWO fuse-api drivers made by enthusiasts - old Dokan/dokany and newer winfsp.
 
-Actually, it worth only bunch of small shim fixes there and here, and relatively small wibecoded shim translating fuse to winfsp api (winfsp had no lowlevel fuse api... until claude did it)
+Actually, it worth only bunch of small shim fixes there and here, and relatively small wibecoded shim translating fuse to winfsp api (winfsp had no lowlevel fuse api... until claude did it) - so you may download it from releases page. (yes, it's compatible with stock 3.12 and even probably 3.13 without high-redundand goals like ec(3,3))
 
 But during both this work and routine maintenance of the cluster, I dived too deep into the code. If I knew that all in advance, I would never started and never used lizardfs at all.
 
