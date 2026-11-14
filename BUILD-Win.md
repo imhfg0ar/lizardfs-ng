@@ -44,5 +44,10 @@ cmake .. \
   -DCMAKE_BUILD_TYPE=Release
 make
 ```
+(note it downloads winfsp and rebuilds exports file we needed to access some low-level parts)
 
-you will find `build-win/src/mount/fuse/mfsmount.exe` if it completes properly
+you will find `build-win/src/mount/fuse/mfsmount.exe` if it completes properly. Bring it to windows system, install [WinFsp](https://winfsp.dev/rel/) first (v2.1 is ok), when just run mfsmount from (non-elevated!) cmd.exe
+
+You will also need tree other dlls (just drop them into the same directory where you run mfsmount) - `libgcc_s_seh-1.dll` `libstdc++-6.dll` `libwinpthread-1.dll` `winfsp-x64.dll` - take the first 3 from your mingw package, mine is in /usr/x86_64-w64-mingw32/lib/ and /usr/lib/gcc/x86_64-w64-mingw32/13-posix/libstdc++-6.dll  - your system may have different layout, and the last one you will find in your windows system after winfsp installed - put it also with others, winfsp does not put it into system-accessible place.
+
+(of course, feel free to just use my prebuild one from releases page instead, simple unzip archive and run. still needs winfsp installed!)
